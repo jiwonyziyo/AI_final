@@ -5,15 +5,18 @@ import numpy as np
 from keras.models import load_model
 
 # Face detection
+## https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Return positions of eyes, nose, mouth, etc., for expression recognition
+## http://dlib.net/files/
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 # Expression labels
 expression_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
 # Expression weight model
+## https://github.com/oarriaga/face_classification
 model = load_model('updated_emotion_model.h5')
 
 # Start video capture
